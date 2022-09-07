@@ -1,0 +1,71 @@
+.taskCheck {
+  padding: 1rem;
+  margin-top: 1.5rem;
+  background: var(--gray-500);
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  color: var(--gray-100);
+  border-radius: 8px;
+
+  text-decoration: line-through;
+}
+.taskCheck p {
+  justify-content: left;
+  opacity: 50%;
+}
+
+.taskUncheck {
+  padding: 1rem;
+  margin-top: 1.5rem;
+  background: var(--gray-500);
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  color: var(--gray-100);
+  border-radius: 8px;
+}
+
+.uncheck {
+  color: var(--blue);
+  transition: color 0.2s, color 0.2s;
+}
+.uncheck:hover {
+  color: var(--blue-dark);
+}
+
+.check {
+  background: var(--purple-dark);
+  color: var(--gray-100);
+  border-radius: 50%;
+  border: 0;
+  outline-style: none;
+
+  transition: color 0.2s, background 0.2s;
+}
+
+.check:hover {
+  background: var(--purple);
+}
+
+.check circle {
+  display: none;
+}
+
+.trash {
+  margin-left: auto;
+  background: transparent;
+  border: 0;
+  line-height: 0;
+  border-radius: 4px;
+  color: var(--gray-300);
+
+  transition: color 0.2s, color 0.2s;
+}
+
+.trash:hover {
+  cursor: pointer;
+  line-height: 0;
+  background: var(--gray-400);
+  color: var(--danger);
+}

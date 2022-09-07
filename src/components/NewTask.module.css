@@ -6,6 +6,7 @@
 }
 
 .input {
+  resize: none;
   padding: 1rem;
   height: 3.375rem;
   width: 39.875rem;

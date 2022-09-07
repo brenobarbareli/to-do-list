@@ -1,14 +1,36 @@
 import style from './NewTask.module.css';
 import { PlusCircle } from 'phosphor-react';
+import { ChangeEvent, FormEvent, useState } from 'react';
 
-export function NewTask() {
+interface NewTaskProps {
+  handleNewTask: (task: string) => void;
+}
+
+export function NewTask(props: NewTaskProps) {
+  const [newTask, setNewTask] = useState('');
+
+  function handleChangeNewTask(event: ChangeEvent<HTMLTextAreaElement>) {
+    setNewTask(event.target.value);
+  }
+
+  function handleCreateNewTask() {
+    props.handleNewTask(newTask);
+    setNewTask('');
+  }
+
   return (
     <div className={style.NewTask}>
-      <input
-        type='text'
+      <textarea
         className={style.input}
-        placeholder='Adicione uma nova tarefa'></input>
-      <button type='submit' className={style.button} title='Criar nova task'>
+        value={newTask}
+        name='TaskText'
+        placeholder='Adicione uma nova tarefa'
+        onChange={handleChangeNewTask}></textarea>
+      <button
+        className={style.button}
+        type='submit'
+        title='Criar nova task'
+        onClick={handleCreateNewTask}>
         Criar
         <PlusCircle size={16} />
       </button>
