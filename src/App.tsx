@@ -11,10 +11,15 @@ export type TaskListType = {
 }[];
 
 export function App() {
-  const [list, setList] = useState<TaskListType>([
-    { concluded: false, text: 'teste', id: Math.random() },
-    { concluded: false, text: 'teste 2', id: Math.random() },
-  ]);
+  const [list, setList] = useState<TaskListType>(() => {
+    const storagedList = localStorage.getItem('taskList');
+
+    if (storagedList) {
+      return JSON.parse(storagedList);
+    }
+
+    return [];
+  });
 
   function handleConcluded(idToConcluded: number) {
     const newList = list.map((item) =>
@@ -23,6 +28,8 @@ export function App() {
         : item,
     );
     setList(newList);
+
+    localStorage.setItem('taskList', JSON.stringify(newList));
   }
 
   function handleDeleted(idToDelete: number) {
@@ -30,11 +37,15 @@ export function App() {
       return item.id !== idToDelete;
     });
     setList(taskWithoutDeletedOne);
+    localStorage.setItem('taskList', JSON.stringify(taskWithoutDeletedOne));
   }
 
   function newTaskAdd(task: string) {
     const newTaskText = { concluded: false, text: task, id: Math.random() };
-    setList([...list, newTaskText]);
+    const newAddTask = [...list, newTaskText];
+    setList(newAddTask);
+
+    localStorage.setItem('taskList', JSON.stringify(newAddTask));
   }
 
   return (
