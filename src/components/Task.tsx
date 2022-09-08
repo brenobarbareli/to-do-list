@@ -23,7 +23,7 @@ export function Task({
         {concluded ? (
           <CheckCircle size={24} className={style.check} />
         ) : (
-          <Circle size={24} className={style.uncheck} />
+          <Circle size={24} className={style.uncheck} weight='duotone' />
         )}
       </span>
       <p>{text}</p>

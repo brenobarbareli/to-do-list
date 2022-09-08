@@ -27,11 +27,18 @@
 }
 
 .uncheck {
+  position: relative;
   color: var(--blue);
-  transition: color 0.2s, color 0.2s;
+  transition: color 0.2s;
 }
 .uncheck:hover {
   color: var(--blue-dark);
+}
+.uncheck circle:first-of-type {
+  transform: scale(0);
+}
+.uncheck:hover circle:first-of-type {
+  transform: scale(1);
 }
 
 .check {

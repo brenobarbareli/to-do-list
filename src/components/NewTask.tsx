@@ -1,6 +1,7 @@
 import style from './NewTask.module.css';
 import { PlusCircle } from 'phosphor-react';
-import { ChangeEvent, FormEvent, useState } from 'react';
+import { ChangeEvent, useState } from 'react';
+import { toast } from 'react-toastify';
 
 interface NewTaskProps {
   handleNewTask: (task: string) => void;
@@ -14,8 +15,12 @@ export function NewTask(props: NewTaskProps) {
   }
 
   function handleCreateNewTask() {
-    props.handleNewTask(newTask);
-    setNewTask('');
+    if (newTask.length === 0) {
+      toast.error('Não é possível incluir uma tarefa vazia');
+    } else {
+      props.handleNewTask(newTask);
+      setNewTask('');
+    }
   }
 
   return (

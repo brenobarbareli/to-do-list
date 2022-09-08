@@ -4,6 +4,9 @@ import { NewTask } from './components/NewTask';
 import { TaskList } from './components/TaskList';
 import './Global.css';
 
+import 'react-toastify/dist/ReactToastify.min.css';
+import { ToastContainer } from 'react-toastify';
+
 export type TaskListType = {
   id: number;
   concluded: boolean;
@@ -59,6 +62,7 @@ export function App() {
         handleConcludedTask={handleConcluded}
         handleDeletedTask={handleDeleted}
       />
+      <ToastContainer />
     </div>
   );
 }
