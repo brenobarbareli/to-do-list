@@ -1,4 +1,5 @@
 import { TaskListType } from '../App';
+import { EmptyTask } from './EmptyTask';
 import { Task } from './Task';
 import style from './TaskList.module.css';
 
@@ -35,9 +36,11 @@ export function TaskList({
           </span>
         </p>
       </header>
-      <ul>
-        {list.length > 0 &&
-          list.map((item) => (
+      {list.length <= 0 ? (
+        <EmptyTask />
+      ) : (
+        <ul>
+          {list.map((item) => (
             <Task
               key={item.id}
               id={item.id}
@@ -47,7 +50,8 @@ export function TaskList({
               text={item.text}
             />
           ))}
-      </ul>
+        </ul>
+      )}
     </div>
   );
 }

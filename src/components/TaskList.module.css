@@ -5,10 +5,6 @@
   width: 46rem;
 }
 
-.global + .global {
-  margin-top: 0.75rem;
-}
-
 .header {
   display: flex;
   justify-content: space-between;

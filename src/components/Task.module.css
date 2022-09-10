@@ -1,6 +1,6 @@
 .taskCheck {
   padding: 1rem;
-  margin-top: 1.5rem;
+  margin-top: 0.75rem;
   background: var(--gray-500);
   display: flex;
   align-items: flex-start;
@@ -17,7 +17,7 @@
 
 .taskUncheck {
   padding: 1rem;
-  margin-top: 1.5rem;
+  margin-top: 0.75rem;
   background: var(--gray-500);
   display: flex;
   align-items: flex-start;

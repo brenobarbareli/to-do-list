@@ -1,0 +1,15 @@
+.emptyTask {
+  width: 46rem;
+  height: 15.25rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: var(--gray-300);
+}
+
+.icon {
+  line-height: 0;
+  margin-bottom: 1rem;
+  color: var(--gray-400);
+}
